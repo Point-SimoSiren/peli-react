@@ -2,9 +2,11 @@ import logo from './logo.svg'
 import './App.css'
 import Laskuri from './Laskuri'
 import React, {useState} from 'react'
+import PelitList from './PelitList'
 
 function App() {
 
+  // Komponentin tila joka ohjaa näytetäänkö laskuria
   const [showLaskuri, setShowLaskuri] = useState(false)
 
   let tervehdys = "Tervehdys laskuri!"
@@ -21,6 +23,8 @@ function App() {
         {showLaskuri && <h4 onClick={() => setShowLaskuri(false)}>Piilota laskuri</h4>}
 
         {showLaskuri && <Laskuri viesti={tervehdys} ilmoitus={ilmoitus} />}
+
+        <PelitList />
 
     </div>
   )
