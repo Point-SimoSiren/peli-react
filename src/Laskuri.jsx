@@ -6,7 +6,7 @@ function Laskuri(props) {
 const [luku, setLuku] = useState(0) // Komponentin tila nimeltään luku. Alustettu nollaksi.
 
   return (
-    <div className="App">
+    <div className="Pelitiedot">
         <p>Tämä on laskuri</p>
         <p>{props.viesti}</p>
         <button onClick={() => props.ilmoitus()}>Ilmoitus nappi</button>

@@ -18,6 +18,8 @@ function App() {
   return (
     <div className="App">
         <img src={logo} className="App-logo" alt="logo" />
+        
+
 
         {!showLaskuri && <h4 onClick={() => setShowLaskuri(true)}>Näytä laskuri</h4>}
         {showLaskuri && <h4 onClick={() => setShowLaskuri(false)}>Piilota laskuri</h4>}
