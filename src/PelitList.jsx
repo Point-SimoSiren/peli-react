@@ -1,6 +1,7 @@
 import './App.css'
 import React, {useState, useEffect} from 'react'
 import Peli from './Peli'
+import AddPeli from './AddPeli'
 
 const PelitList = () => {
 
@@ -18,6 +19,8 @@ const PelitList = () => {
     return (
         <div className="App">
             <h1>Pelit</h1>
+
+            {showAddForm && <AddPeli />}
 
             <button onClick={() => setShowAddForm(!showAddForm)} className="pelinLisäysNappi" >Lisää uusi peli</button>
 
