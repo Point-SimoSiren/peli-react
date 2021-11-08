@@ -20,9 +20,9 @@ const PelitList = () => {
         <div className="App">
             <h1>Pelit</h1>
 
-            {showAddForm && <AddPeli />}
+            {showAddForm && <AddPeli setShowAddForm={setShowAddForm} />}
 
-            <button onClick={() => setShowAddForm(!showAddForm)} className="pelinLisäysNappi" >Lisää uusi peli</button>
+            {!showAddForm && <button onClick={() => setShowAddForm(!showAddForm)} className="pelinLisäysNappi" >Lisää uusi peli</button>}
 
             {pelit && pelit.map(p => (
                <Peli peli={p}/>
