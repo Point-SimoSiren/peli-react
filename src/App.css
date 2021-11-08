@@ -8,8 +8,14 @@
   padding-top: 2%;
   padding-bottom: 2%;
   background-color: darkturquoise;
+  width: 20%;
+  margin: auto;
+  border-radius: 20px;
 }
 
+td, th {
+  width: 5%;
+}
 
 .App-logo {
   height: 40vmin;
