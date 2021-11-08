@@ -6,6 +6,7 @@ const PelitList = () => {
 
     // Komponentin tila
     const [pelit, setPelit] = useState([])
+    const [showAddForm, setShowAddForm] = useState(false)
 
     // useEffect hookilla voidaan vaikka hakea datat alussa
     useEffect(() => {
@@ -17,6 +18,8 @@ const PelitList = () => {
     return (
         <div className="App">
             <h1>Pelit</h1>
+
+            <button onClick={() => setShowAddForm(!showAddForm)} className="pelinLisäysNappi" >Lisää uusi peli</button>
 
             {pelit && pelit.map(p => (
                <Peli peli={p}/>

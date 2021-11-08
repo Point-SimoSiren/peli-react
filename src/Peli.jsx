@@ -32,7 +32,7 @@ const Peli = (props) => {
                             <td>{props.peli.lataukset}</td>
                         </tr>
                     </tbody>
-               
+                    
                 </table>
                 </div>
                 }
