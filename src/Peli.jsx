@@ -11,7 +11,7 @@ const Peli = (props) => {
         <div className="App">
             <h4>{props.peli.nimi}</h4>
            {näytetäänkö &&
-           <div className="pelitiedot">
+           <div className="Pelitiedot">
                 <table>
                     <thead>
                         <tr>
