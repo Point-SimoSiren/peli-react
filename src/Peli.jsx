@@ -16,6 +16,12 @@ const Peli = (props) => {
         }
         else {
             sendToBackend(peli.peliId)
+            .then(response => alert(response.data))
+
+            setTimeout(() => {
+                props.setHaeDatat(!props.haeDatat)
+            }, 500)
+            
         }
     }
 
