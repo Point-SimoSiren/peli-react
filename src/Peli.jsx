@@ -1,11 +1,31 @@
 import './App.css'
 import React, {useState} from 'react'
+import Axios from 'axios'
 
 // PelitList.jsx tulostaa tämän komponentin jokaiselle pelille ja lähettää propsina aina kyseisen pelin tiedot
 const Peli = (props) => {
 
-    // Komponentin tila joka määrää näytetäänkö pelkkä nimi vai muutkin tiedot
+    // Komponentin tila joka määrää näytetäänkö pelkkä nimi vai muutkin tiedot.
     const [näytetäänkö, setNäytetäänkö] = useState(false)
+
+    // Poistonapin tapahtumankäsittelijä
+    const poistaPeli = (peli) => {
+        const result = window.confirm("Haluatko poistaa pelin: " + peli.nimi)
+        if (result === false) {
+            return // jos ei haluta poistaa, niin hypätään pois funktiosta.
+        }
+        else {
+            sendToBackend(peli.peliId)
+        }
+    }
+
+    // Axios metodi joka lähettää poistopyynnön back-endiin
+    const sendToBackend = (id) => {
+        let token = "Rtayi23tyP987ghX1"
+        return Axios.delete('https://localhost:5001/api/pelit/' + id + '/' + token)
+    }
+
+
 
     return (
         <div className="App">
@@ -34,7 +54,8 @@ const Peli = (props) => {
                             <td>{props.peli.genreId}</td>
                             <td>{props.peli.julkaisuvuosi}</td>
                             <td>{props.peli.lataukset}</td>
-                            <td><button>poista</button></td>
+
+                            <td><button onClick={() => poistaPeli(props.peli)}>poista</button></td>
                             <td><button>muokkaa</button></td>
                         </tr>
                     </tbody>
