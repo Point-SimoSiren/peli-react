@@ -14,7 +14,7 @@ const PelitList = () => {
         fetch("https://localhost:5001/api/pelit")
         .then(res => res.json()) // muutetaan json data javascriptiksi
         .then(data => setPelit(data)) // Asetetaan data peli nimiseen stateen
-    }, [])
+    }, [showAddForm])
 
     return (
         <div className="App">
