@@ -3,6 +3,7 @@ import './App.css'
 import Laskuri from './Laskuri'
 import React, {useState} from 'react'
 import PelitList from './PelitList'
+import GenretList from './GenretList'
 
 function App() {
 
@@ -19,15 +20,16 @@ function App() {
     <div className="App">
         <img src={logo} className="App-logo" alt="logo" />
         
-
-
         {!showLaskuri && <h4 onClick={() => setShowLaskuri(true)}>Näytä laskuri</h4>}
         {showLaskuri && <h4 onClick={() => setShowLaskuri(false)}>Piilota laskuri</h4>}
 
         {showLaskuri && <Laskuri viesti={tervehdys} ilmoitus={ilmoitus} />}
 
-        <PelitList />
+        <GenretList />
 
+        <PelitList />
+        
+       
     </div>
   )
 }

@@ -20,7 +20,7 @@ const PelitList = () => {
 
     return (
         <div className="App">
-            <h1>Pelit</h1>
+            <h2>Pelit</h2>
             
             {showAddForm && <AddPeli setShowAddForm={setShowAddForm} />}
 
