@@ -29,9 +29,16 @@ const PelitList = () => {
             <input className="hakuKenttä" type="text"
             value={haku} onChange={({target}) => setHaku(target.value)} placeholder="Hae pelin nimellä" />
 
-            {pelit && pelit.map(p => (
+            {pelit && pelit.map(p => {
+                const lowerCaseName = p.nimi.toLowerCase()
+                if (lowerCaseName.indexOf(haku.toLowerCase()) > -1) {
+                    return (
                <Peli peli={p} setHaeDatat={setHaeDatat} haeDatat={haeDatat} />
-            ))}
+            
+                    )}
+                    }
+                ) 
+            }
             
             {!pelit && <h4>Ldataan...</h4>}
         </div>
