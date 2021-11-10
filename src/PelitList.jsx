@@ -2,7 +2,6 @@ import './App.css'
 import React, {useState, useEffect} from 'react'
 import Peli from './Peli'
 import AddPeli from './AddPeli'
-import { flushSync } from 'react-dom'
 
 const PelitList = () => {
 
@@ -10,6 +9,7 @@ const PelitList = () => {
     const [pelit, setPelit] = useState([])
     const [showAddForm, setShowAddForm] = useState(false)
     const [haeDatat, setHaeDatat] = useState(false)
+    const [haku, setHaku] = useState('')
 
     // useEffect hookilla voidaan vaikka hakea datat alussa
     useEffect(() => {
@@ -21,10 +21,13 @@ const PelitList = () => {
     return (
         <div className="App">
             <h1>Pelit</h1>
-
+            
             {showAddForm && <AddPeli setShowAddForm={setShowAddForm} />}
 
             {!showAddForm && <button onClick={() => setShowAddForm(!showAddForm)} className="pelinLisäysNappi" >Lisää uusi peli</button>}
+            <br />
+            <input className="hakuKenttä" type="text"
+            value={haku} onChange={({target}) => setHaku(target.value)} placeholder="Hae pelin nimellä" />
 
             {pelit && pelit.map(p => (
                <Peli peli={p} setHaeDatat={setHaeDatat} haeDatat={haeDatat} />
