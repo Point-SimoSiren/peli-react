@@ -23,6 +23,9 @@ class About extends Component {
         return(
             <div className="App">
             <h2>Tietoja</h2>
+            <h3>Kuukauden pelaaja Lokakuu 2021 on {this.state.kuukaudenPelaaja}</h3>
+
+
             <p>Olemme Suomen 44. suurin pelialan foorumi</p>
 
             {!this.state.showImage && <button onClick={() => this.setState({showImage: !this.state.showImage}) }>Katso kuvamme jos uskallat</button>}
