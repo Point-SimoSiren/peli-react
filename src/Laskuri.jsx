@@ -1,16 +1,14 @@
 import './App.css'
 import React, {useState} from 'react'
 
-function Laskuri(props) {
+const Laskuri = () => {
 
 const [luku, setLuku] = useState(0) // Komponentin tila nimeltään luku. Alustettu nollaksi.
 
   return (
     <div className="Pelitiedot">
         <p>Tämä on laskuri</p>
-        <p>{props.viesti}</p>
-        <button onClick={() => props.ilmoitus()}>Ilmoitus nappi</button>
-
+        
         <button onClick={() => setLuku(luku + 1)}>plus</button>
         <button onClick={() => setLuku(luku - 1)}>miinus</button>
         <h3>{luku}</h3>
