@@ -4,32 +4,34 @@ import Laskuri from './Laskuri'
 import React, {useState} from 'react'
 import PelitList from './PelitList'
 import GenretList from './GenretList'
+// React router navigointiin
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+// Bootstrap navipalkkia varten
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-function App() {
+const App = () => {
 
-  // Komponentin tila joka ohjaa näytetäänkö laskuria
-  const [showLaskuri, setShowLaskuri] = useState(false)
-
-  let tervehdys = "Tervehdys laskuri!"
-
-  function ilmoitus() {
-    alert("nappia painettu!")
-  }
-
+  
   return (
     <div className="App">
         <img src={logo} className="App-logo" alt="logo" />
+        <h1>Pelisovellus</h1>
         
-        {!showLaskuri && <h4 onClick={() => setShowLaskuri(true)}>Näytä laskuri</h4>}
-        {showLaskuri && <h4 onClick={() => setShowLaskuri(false)}>Piilota laskuri</h4>}
+        <Router>
 
-        {showLaskuri && <Laskuri viesti={tervehdys} ilmoitus={ilmoitus} />}
+
+
+        </Router>
+
+
+         <Laskuri viesti={tervehdys} ilmoitus={ilmoitus} />
 
         <GenretList />
 
         <PelitList />
         
-       
     </div>
   )
 }

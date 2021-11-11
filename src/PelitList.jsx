@@ -26,6 +26,7 @@ const PelitList = () => {
 
             {!showAddForm && <button onClick={() => setShowAddForm(!showAddForm)} className="pelinLisäysNappi" >Lisää uusi peli</button>}
             <br />
+            
             <input className="hakuKenttä" type="text"
             value={haku} onChange={({target}) => setHaku(target.value)} placeholder="Hae pelin nimellä" />
 
