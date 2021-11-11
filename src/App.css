@@ -47,6 +47,10 @@ td, th {
   margin-top: 2%;
 }
 
+#etusivuLinkki {
+  margin-left: 20%;
+}
+
 .genreTaulukko {
   width: 30%;
   margin: auto;

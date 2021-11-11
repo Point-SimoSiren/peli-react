@@ -21,7 +21,7 @@ const App = () => {
         
         <Router>
           <Navbar bg="dark" variant="dark">
-            <Link to={'/'} className='nav-link'>Etusivu</Link>
+            <Link to={'/'} id="etusivuLinkki" className='nav-link'>Etusivu</Link>
             <Nav className="mr-auto">
 
               <Link to={'/Pelit'} className='nav-link'>Pelit</Link>
