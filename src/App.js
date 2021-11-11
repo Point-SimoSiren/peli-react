@@ -4,6 +4,8 @@ import Laskuri from './Laskuri'
 import React, {useState} from 'react'
 import PelitList from './PelitList'
 import GenretList from './GenretList'
+import About from './About'
+
 // React router navigointiin
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 // Bootstrap navipalkkia varten
@@ -27,6 +29,7 @@ const App = () => {
               <Link to={'/Pelit'} className='nav-link'>Pelit</Link>
               <Link to={'/Genret'} className='nav-link'>Genret</Link>
               <Link to={'/Laskuri'} className='nav-link'>Laskuri</Link>
+              <Link to={'/Tietoja'} className='nav-link'>Tietoja</Link>
             </Nav>
           </Navbar>
 
@@ -34,6 +37,7 @@ const App = () => {
             <Route path='/Pelit' element={<PelitList />} />
             <Route path='/Genret' element={<GenretList />} />
             <Route path='/Laskuri' element={<Laskuri />} />
+            <Route path='/Tietoja' element={<About />} />
           </Routes>
         </Router>
     </div>
