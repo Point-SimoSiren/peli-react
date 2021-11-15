@@ -67,8 +67,8 @@ const GenretList = () => {
                             <td>{g.nimi}</td>
                             <td>{g.kuvaus}</td>
 
-                            <td><i onClick={() => alert("muokkkaus")} class="fas fa-pencil-alt"></i></td>
-                            <td><i onClick={() => poistaGenre(g)} class="far fa-trash-alt"></i></td>
+                            <td><i onClick={() => alert("muokkkaus")} className="fas fa-pencil-alt"></i></td>
+                            <td><i onClick={() => poistaGenre(g)} className="far fa-trash-alt"></i></td>
                         </tr>
 
                         )  

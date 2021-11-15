@@ -51,7 +51,7 @@ const Peli = (props) => {
                             <th>Genre ID</th>
                             <th>Julkaisuvuosi</th>
                             <th>Lataukset</th>
-                            <th></th>
+                            <th><i onClick={() => alert("muokkkaus")} className="fas fa-pencil-alt"></i></th>
                             <th></th>
                         </tr>
                     </thead>
@@ -61,8 +61,8 @@ const Peli = (props) => {
                             <td>{props.peli.julkaisuvuosi}</td>
                             <td>{props.peli.lataukset}</td>
 
-                            <td><button onClick={() => poistaPeli(props.peli)}>poista</button></td>
-                            <td><button>muokkaa</button></td>
+                            <td><i onClick={() => poistaPeli(props.peli)} className="fas fa-trash-alt"></i></td>
+                            <td></td>
                         </tr>
                     </tbody>
                     
