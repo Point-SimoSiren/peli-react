@@ -5,9 +5,10 @@ import Axios from 'axios'
 const EditGenre = (props) => {
 
     // Propsina vastaanotetaan yksi genre olio. Sen lähettää GenretList komponentti.
+    // Myöskin setShowEditForm jolla piilotetaan edit lomake kun muokkaus on valmis.
 
     const [nimi, setNimi] = useState(props.genre.nimi)
-    const [kuvaus, setKuvaus] = useState(props.genre.kuvaus)
+    const [kuvaus, setKuvaus] = useState(props.genre.kuvaus !== undefined ? props.genre.kuvaus : "")
 
     const tyhjennä = () => {
         setNimi('')
@@ -31,15 +32,15 @@ const EditGenre = (props) => {
             alert(response.data)
             // Muokkauslomake piilotetaan propsina saadulla funktiolla joka muuttaa GenretList.jsx:ssä
             // määritettyä statea: showEditForm
-            props.setEditAddForm(false)
+            props.setShowEditForm(false)
         }})
 
     }
 
     // Tämä funktio tekee pelkän http pyyntö osuuden
     const sendToBackend = (id, muokattuGenre) => {
-      //return Axios.put('https://localhost:5001/api/genret/' + id, muokattuGenre)
-        return Axios.put(`https://localhost:5001/api/genret/${id}`, muokattuGenre)
+      return Axios.put('https://localhost:5001/api/genret/' + id, muokattuGenre)
+        //return Axios.put(`https://localhost:5001/api/genret/${id}`, muokattuGenre)
 
     }
    

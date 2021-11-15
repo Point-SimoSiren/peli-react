@@ -22,12 +22,12 @@ const AddGenre = (props) => {
         // Kutsutaan funktiota, joka tekee http pyynnön
         sendToBackend(newGenre)
         .then(response => {
-            if (response.status === 200) {
-            alert(response.data)
+            
+            console.log(response.data)
             // Lisäyslomake piilotetaan propsina saadulla funktiolla joka muuttaa GenretList.jsx:ssä
             // määritettyä statea: showAddForm
             props.setShowAddForm(false)
-        }})
+        })
 
     }
 
