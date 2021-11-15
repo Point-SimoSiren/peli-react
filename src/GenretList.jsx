@@ -66,9 +66,11 @@ const GenretList = () => {
                             <td>{g.genreId}</td>
                             <td>{g.nimi}</td>
                             <td>{g.kuvaus}</td>
-                            <td><button>muokkaa</button></td>
-                            <td><button onClick={() => poistaGenre(g)}>poista</button></td>
+
+                            <td><i onClick={() => alert("muokkkaus")} class="fas fa-pencil-alt"></i></td>
+                            <td><i onClick={() => poistaGenre(g)} class="far fa-trash-alt"></i></td>
                         </tr>
+
                         )  
                       )
                     }

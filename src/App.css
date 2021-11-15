@@ -17,26 +17,49 @@ td, th {
   width: 5%;
 }
 
+.poistoNappi {
+	box-shadow:inset -2px 29px 0px -41px #f81307;
+	background-color:#f1200d;
+	border-radius:5px;
+	border:1px solid #ffffff;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:7px 10px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #b23e35;
+}
+.poistoNappi:hover {
+	background-color:#eebfbc;
+  color: black;
+}
+.poistoNappi:active {
+	position:relative;
+	top:1px;
+}
+
+
 
 .pelinLisäysNappi {
-	box-shadow: 0px 10px 14px -7px #3e7327;
-	background:linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
-	background-color:#77b55a;
+	box-shadow: 0px 10px 14px -7px #40ac12;
+	background:linear-gradient(to bottom, #519e2d 5%, #50ac22 100%);
+	background-color:#428125;
 	border-radius:4px;
 	border:1px solid #4b8f29;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
-	font-family:Arial;
-	font-size:18px;
-	font-weight:bold;
-	padding:10px 50px;
+	font-size:16px;
+	padding:5px 20px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #5b8a3c;
 }
 .pelinLisäysNappi:hover {
-	background:linear-gradient(to bottom, #72b352 5%, #77b55a 100%);
-	background-color:#72b352;
+	background:linear-gradient(to bottom, #fafcf9 5%, #acda97 100%);
+	background-color:#cee4c3;
+  color: black;
 }
 .pelinLisäysNappi:active {
 	position:relative;
