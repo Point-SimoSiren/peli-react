@@ -34,7 +34,15 @@ const App = () => {
     }
   }
 
-     
+  // Logout linkin tapahtmankäsittelijä funktio
+  const logout = () => {
+    const result = window.confirm("Vahvista uloskirjautuminen")
+    if (result === true) {
+    localStorage.clear()
+    window.location.reload()
+    }
+  }
+
 
   return (
     <>
@@ -60,6 +68,7 @@ const App = () => {
               <Link to={'/Genret'} className='nav-link'>Genret</Link>
               <Link to={'/Laskuri'} className='nav-link'>Laskuri</Link>
               <Link to={'/Tietoja'} className='nav-link'>Tietoja</Link>
+              <a className='nav-link' onClick={logout}>Kirjaudu ulos</a>
             </Nav>
           </Navbar>
 

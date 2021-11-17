@@ -1,5 +1,5 @@
 import './App.css'
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Axios from 'axios'
 
 const AddPeli = (props) => {
@@ -8,6 +8,14 @@ const AddPeli = (props) => {
     const [genreId, setGenreId] = useState('')
     const [julkaisuvuosi, setJulkaisuvuosi] = useState('')
     const [lataukset, setLataukset] = useState('')
+    const [genret, setGenret] = useState([]) // genret tänne dropdownia varten
+
+    // Haetaan genret
+    useEffect(() => {
+       fetch('https://localhost:5001/api/genret')
+       .then(res => res.json()) // json muodosta javascriptiksi
+       .then(oliot => setGenret(oliot)) // asetetaan stateen
+    }, [])
 
     const tyhjennä = () => {
         setName('')
@@ -49,7 +57,16 @@ const AddPeli = (props) => {
             <form onSubmit={handleSubmit} style={{width: '13%', margin: 'auto'}}>
 
                 <input type="text" value={name} onChange={({target}) => setName(target.value)} placeholder="Pelin nimi" />
-                <input type="text" value={genreId} onChange={({target}) => setGenreId(target.value)} placeholder="Genre id" />
+
+                    <select className="dropdown"
+                        value={genreId} 
+                        onChange={({target}) => setGenreId(target.value)}>
+                        {genret && genret.map(g => {
+                            return(
+                             <option value={g.genreId}>{g.nimi}</option>
+                        )})}
+                    </select>
+              
                 <input type="text" value={julkaisuvuosi} onChange={({target}) => setJulkaisuvuosi(target.value)} placeholder="Julkaisuvuosi" />
                 <input type="text" value={lataukset} onChange={({target}) => setLataukset(target.value)} placeholder="lataukset" />
                
