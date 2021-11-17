@@ -19,7 +19,7 @@ const PelitList = () => {
         fetch("https://localhost:5001/api/pelit")
         .then(res => res.json()) // muutetaan json data javascriptiksi
         .then(data => setPelit(data)) // Asetetaan data peli nimiseen stateen
-    }, [showAddForm, haeDatat])
+    }, [showAddForm, haeDatat, showEditForm])
 
 
       // Muokkausnapin / kynäkuvan tapahtumankäsittelijä. p = peli mikä lähetetään parametrina kynäkuvakkeelta
@@ -38,8 +38,7 @@ const PelitList = () => {
             {!showAddForm && <button onClick={() => setShowAddForm(!showAddForm)} className="pelinLisäysNappi" >Lisää uusi peli</button>}
             <br />
 
-            {showEditForm && <EditPeli setShowEditForm={setShowEditForm} peli={muokattavaPeli}
-            muokkaa={muokkaa} />}
+            {showEditForm && <EditPeli setShowEditForm={setShowEditForm} peli={muokattavaPeli} />}
             
             <input className="hakuKenttä" type="text"
             value={haku} onChange={({target}) => setHaku(target.value)} placeholder="Hae pelin nimellä" />
@@ -48,7 +47,7 @@ const PelitList = () => {
                 const lowerCaseName = p.nimi.toLowerCase()
                 if (lowerCaseName.indexOf(haku.toLowerCase()) > -1) {
                     return (
-               <Peli peli={p} setHaeDatat={setHaeDatat} haeDatat={haeDatat} />
+               <Peli peli={p} muokkaa={muokkaa} setHaeDatat={setHaeDatat} haeDatat={haeDatat} />
             
                     )}
                     }
