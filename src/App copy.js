@@ -1,7 +1,7 @@
 import logo from './logo.svg'
 import './App.css'
 import Laskuri from './Laskuri'
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import PelitList from './PelitList'
 import GenretList from './GenretList'
 import About from './About'
@@ -16,41 +16,27 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 const App = () => {
 
   const [loggedIn, setLoggedIn] = useState(false)
+  const [pin, setPin] = useState("")
 
-  // Tarkistetaan alussa onko selaimeen talletettu kirjautumistieto
-  useEffect(() => {
-    let tieto = localStorage.getItem("kirjautunut")
-    if (tieto === "true") {
-      setLoggedIn(true)
-    }
-  }, [])
-
-  // Tämä ajetaan kun pinkoodikenttän sisältö muuttuu
-  const vertaile = (input) => {
-  if (input === "12345")
+  if (pin === "12345")
     {
-      localStorage.setItem("kirjautunut", true)
       setLoggedIn(true)
     }
+
+  if (loggedIn === false) {
+    return(
+      <div className="App">
+        <input type="password" value={pin} onChange={({target}) => setPin(target.value)} placeholder="syötä pinkoodi" />
+      </div>
+    )
   }
 
-     
-
+  if (loggedIn === false) {
   return (
-    <>
-      {loggedIn === false && <div className="App">
-      
-        <input type="password" onChange={({target}) => vertaile(target.value)} placeholder="syötä pinkoodi" />
-        </div>
-      }
-      
-
-      {loggedIn === true &&
-        <div className="App">
+    <div className="App">
         <img src={logo} className="App-logo" alt="logo" />
         <h1>Pelisovellus</h1>
         
-
         <Router>
           <Navbar bg="dark" variant="dark">
             <Link to={'/'} id="etusivuLinkki" className='nav-link'>Etusivu</Link>
@@ -71,10 +57,9 @@ const App = () => {
           </Routes>
         </Router>
     </div>
-      }
-    </>
    )
   }
+}
 
 export default App
 
