@@ -2,6 +2,7 @@ import './App.css'
 import React, {useState, useEffect} from 'react'
 import Peli from './Peli'
 import AddPeli from './AddPeli'
+import EditPeli from './EditPeli'
 
 const PelitList = () => {
 
@@ -10,6 +11,8 @@ const PelitList = () => {
     const [showAddForm, setShowAddForm] = useState(false)
     const [haeDatat, setHaeDatat] = useState(false)
     const [haku, setHaku] = useState('')
+    const [showEditForm, setShowEditForm] = useState(false)
+    const [muokattavaPeli, setMuokattavaPeli] = useState({}) // Alustus tyhjä olio
 
     // useEffect hookilla voidaan vaikka hakea datat alussa
     useEffect(() => {
@@ -17,6 +20,14 @@ const PelitList = () => {
         .then(res => res.json()) // muutetaan json data javascriptiksi
         .then(data => setPelit(data)) // Asetetaan data peli nimiseen stateen
     }, [showAddForm, haeDatat])
+
+
+      // Muokkausnapin / kynäkuvan tapahtumankäsittelijä. p = peli mikä lähetetään parametrina kynäkuvakkeelta
+      const muokkaa = (p) => {
+        setMuokattavaPeli(p)
+        setShowEditForm(true) // Muokkausikkuna tuodaan näkyviin tällä tilamuutoksella
+    }
+
 
     return (
         <div className="App">
@@ -26,6 +37,8 @@ const PelitList = () => {
 
             {!showAddForm && <button onClick={() => setShowAddForm(!showAddForm)} className="pelinLisäysNappi" >Lisää uusi peli</button>}
             <br />
+
+            {showEditForm && <EditPeli setShowEditForm={setShowEditForm} peli={muokattavaPeli} />}
             
             <input className="hakuKenttä" type="text"
             value={haku} onChange={({target}) => setHaku(target.value)} placeholder="Hae pelin nimellä" />

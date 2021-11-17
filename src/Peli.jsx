@@ -51,7 +51,7 @@ const Peli = (props) => {
                             <th>Genre ID</th>
                             <th>Julkaisuvuosi</th>
                             <th>Lataukset</th>
-                            <th><i onClick={() => alert("muokkkaus")} className="fas fa-pencil-alt"></i></th>
+                            <th><i onClick={() => alert("muokkaus")} className="fas fa-pencil-alt"></i></th>
                             <th></th>
                         </tr>
                     </thead>
