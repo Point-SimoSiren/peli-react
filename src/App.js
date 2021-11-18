@@ -16,21 +16,34 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 const App = () => {
 
   const [loggedIn, setLoggedIn] = useState(false)
+  const [admin, setAdmin] = useState(false)
 
-  // Tarkistetaan alussa onko selaimeen talletettu kirjautumistieto
+  // Tarkistetaan alussa onko selaimeen localstorageen talletettu kirjautumistieto
   useEffect(() => {
-    let tieto = localStorage.getItem("kirjautunut")
-    if (tieto === "true") {
+    let kirjautunut = localStorage.getItem("kirjautunut")
+    if (kirjautunut === "true") {
       setLoggedIn(true)
+    }
+    let admin = localStorage.getItem("admin")
+    if (admin === "true") {
+      setAdmin(true)
     }
   }, [])
 
   // Tämä ajetaan kun pinkoodikenttän sisältö muuttuu
   const vertaile = (input) => {
-  if (input === "12345")
+  if (input === "12345") // Peruskäyttäjän pinkoodi
     {
       localStorage.setItem("kirjautunut", true)
+      localStorage.setItem("admin", false)
       setLoggedIn(true)
+    }
+    if (input === "09876") // Admin pinkoodi
+    {
+      localStorage.setItem("kirjautunut", true)
+      localStorage.setItem("admin", true)
+      setLoggedIn(true)
+      setAdmin(true)
     }
   }
 
@@ -64,10 +77,8 @@ const App = () => {
         <img src={logo} className="App-logo" alt="logo" />
        
           <h1>Pelisovellus</h1>
+          {admin && <h5>Huom! Olet kirjatutunut sisään administraattorina</h5>}
           
-       
-        
-
         <Router>
           <Navbar bg="dark" variant="dark">
             <Link to={'/'} id="etusivuLinkki" className='nav-link'>Etusivu</Link>
@@ -82,8 +93,8 @@ const App = () => {
           </Navbar>
 
           <Routes>
-            <Route path='/Pelit' element={<PelitList />} />
-            <Route path='/Genret' element={<GenretList />} />
+            <Route path='/Pelit' element={<PelitList admin={admin} />} />
+            <Route path='/Genret' element={<GenretList admin={admin} />} />
             <Route path='/Laskuri' element={<Laskuri />} />
             <Route path='/Tietoja' element={<About />} />
           </Routes>

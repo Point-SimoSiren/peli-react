@@ -4,7 +4,8 @@ import Axios from 'axios'
 import AddGenre from './AddGenre'
 import EditGenre from './EditGenre'
 
-const GenretList = () => {
+// Propsina tulee admin tieto app komponentilta
+const GenretList = ({admin}) => {
 
     // Komponentin tila eli state
     const [genret, setGenret] = useState([]) // Alustus tyhjä taulukko
@@ -96,8 +97,8 @@ const GenretList = () => {
                             <td>{g.nimi}</td>
                             <td>{g.kuvaus}</td>
 
-                            <td><i onClick={() => muokkaa(g)} className="fas fa-pencil-alt"></i></td>
-                            <td><i onClick={() => poistaGenre(g)} className="far fa-trash-alt"></i></td>
+                            {admin && <td><i onClick={() => muokkaa(g)} className="fas fa-pencil-alt"></i></td>}
+                           {admin && <td><i onClick={() => poistaGenre(g)} className="far fa-trash-alt"></i></td>}
                             <td><i onClick={() => haePelit(g)} class="fas fa-gamepad"></i></td>
                         </tr>
 

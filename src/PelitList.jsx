@@ -4,7 +4,9 @@ import Peli from './Peli'
 import AddPeli from './AddPeli'
 import EditPeli from './EditPeli'
 
-const PelitList = () => {
+// Jos propsi otetaan vastaan nimellä aaltosuluissa, siihen ei tarvitse enää viitata sanalla props
+// vaan pelkkä admin riittää
+const PelitList = ({admin}) => {
 
     // Komponentin tila
     const [pelit, setPelit] = useState([])
@@ -33,12 +35,12 @@ const PelitList = () => {
         <div className="App">
             <h2>Pelit</h2>
             
-            {showAddForm && <AddPeli setShowAddForm={setShowAddForm} />}
+            {showAddForm && admin && <AddPeli setShowAddForm={setShowAddForm} />}
 
-            {!showAddForm && <button onClick={() => setShowAddForm(!showAddForm)} className="pelinLisäysNappi" >Lisää uusi peli</button>}
+            {!showAddForm && admin && <button onClick={() => setShowAddForm(!showAddForm)} className="pelinLisäysNappi" >Lisää uusi peli</button>}
             <br />
 
-            {showEditForm && <EditPeli setShowEditForm={setShowEditForm} peli={muokattavaPeli} />}
+            {showEditForm && admin && <EditPeli setShowEditForm={setShowEditForm} peli={muokattavaPeli} />}
             
             <input className="hakuKenttä" type="text"
             value={haku} onChange={({target}) => setHaku(target.value)} placeholder="Hae pelin nimellä" />
@@ -47,7 +49,7 @@ const PelitList = () => {
                 const lowerCaseName = p.nimi.toLowerCase()
                 if (lowerCaseName.indexOf(haku.toLowerCase()) > -1) {
                     return (
-               <Peli peli={p} muokkaa={muokkaa} setHaeDatat={setHaeDatat} haeDatat={haeDatat} />
+               <Peli peli={p} muokkaa={muokkaa} admin={admin} setHaeDatat={setHaeDatat} haeDatat={haeDatat} />
             
                     )}
                     }

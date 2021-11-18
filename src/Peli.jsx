@@ -51,7 +51,7 @@ const Peli = (props) => {
                             <th>Genre ID</th>
                             <th>Julkaisuvuosi</th>
                             <th>Lataukset</th>
-                            <th><i onClick={() => props.muokkaa(props.peli)} className="fas fa-pencil-alt"></i></th>
+                            {props.admin && <th><i onClick={() => props.muokkaa(props.peli)} className="fas fa-pencil-alt"></i></th>}
                             <th></th>
                         </tr>
                     </thead>
@@ -61,7 +61,7 @@ const Peli = (props) => {
                             <td>{props.peli.julkaisuvuosi}</td>
                             <td>{props.peli.lataukset}</td>
 
-                            <td><i onClick={() => poistaPeli(props.peli)} className="fas fa-trash-alt"></i></td>
+                            {props.admin && <td><i onClick={() => poistaPeli(props.peli)} className="fas fa-trash-alt"></i></td>}
                             <td></td>
                         </tr>
                     </tbody>
