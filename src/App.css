@@ -9,8 +9,13 @@
   padding-bottom: 2%;
   background-color: darkturquoise;
   width: 40%;
+  min-width: 300px;
   margin: auto;
   border-radius: 20px;
+}
+
+table {
+  margin: auto;
 }
 
 td, th {
@@ -52,8 +57,27 @@ td, th {
 }
 
 #etusivuLinkki {
-  margin-left: 20%;
+  margin-left: 30%;
 }
+
+@media screen and (max-width: 900px) {
+  #etusivuLinkki {
+    margin-left: 15%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #etusivuLinkki {
+    margin-left: 10%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #etusivuLinkki {
+    margin-left: 2%;
+  }
+}
+
 
 .genreTaulukko {
   width: 30%;

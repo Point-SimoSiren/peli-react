@@ -43,6 +43,9 @@ const App = () => {
     }
   }
 
+  // JavaScript media query
+  let ruudunLeveys = window.matchMedia("(max-width: 500px)")
+
 
   return (
     <>
@@ -55,8 +58,14 @@ const App = () => {
 
       {loggedIn === true &&
         <div className="App">
+
+         {ruudunLeveys.matches && <button id="logoutNappi" onClick={logout}>Kirjaudu ulos</button>}
+
         <img src={logo} className="App-logo" alt="logo" />
-        <h1>Pelisovellus</h1>
+       
+          <h1>Pelisovellus</h1>
+          
+       
         
 
         <Router>
@@ -68,7 +77,7 @@ const App = () => {
               <Link to={'/Genret'} className='nav-link'>Genret</Link>
               <Link to={'/Laskuri'} className='nav-link'>Laskuri</Link>
               <Link to={'/Tietoja'} className='nav-link'>Tietoja</Link>
-              <a className='nav-link' onClick={logout}>Kirjaudu ulos</a>
+              { !ruudunLeveys.matches && <a className='nav-link' onClick={logout}>Kirjaudu ulos</a>}
             </Nav>
           </Navbar>
 
